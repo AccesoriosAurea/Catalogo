@@ -801,7 +801,7 @@ window.irACategoriaYBuscar = irACategoriaYBuscar;
       }
       const texto = generarTextoPedido();
       // Número de ejemplo (cambiar por el real). Usamos encodeURIComponent
-      const numeroWhatsApp = '573015353936'; // reemplazar con el número deseado (sin +, con código país)
+      const numeroWhatsApp = '573011337774'; // reemplazar con el número deseado (sin +, con código país)
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
       window.open(url, '_blank');
     }
