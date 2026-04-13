@@ -24,7 +24,7 @@ const productosData = {
     {
       id: 'ARE-ROD-F-001', 
       codigo: 'ARE-ROD-F-001', 
-      nombre: 'Aretes florales', 
+      nombre: 'Candongas florales', 
       desc: 'Diseño brillante', 
       precio: 13000, 
       imagen: 'images/aretes/ARE-ROD-F-001.jpg',
