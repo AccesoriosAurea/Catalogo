@@ -32,6 +32,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ACE-F-002', 
+      codigo: 'ARE-ACE-F-002', 
+      nombre: 'Topos corazon texturizado', 
+      desc: 'Diseño brillante', 
+      precio: 12000, 
+      imagen: 'images/aretes/ARE-ACE-F-002.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'acero',
+      sexo: 'F'
     }
   ]
 };
