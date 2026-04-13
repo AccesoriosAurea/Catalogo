@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>AUREA · Jewelry · Catálogo</title>
+  <!-- Font Awesome (iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+
+<div class="app-wrapper">
+  <!-- COLUMNA IZQUIERDA: CATÁLOGO MULTIPÁGINA (TABS) -->
+  <section class="catalogo-section">
+    <div class="header-catalogo">
+      <div class="logo-area">
+        <h1>AUREA</h1>
+        <p>Jewelry</p>
+      </div>
+      <div class="categorias-tabs" id="categoriaTabs">
+        <button class="tab-btn active" data-cat="anillos"><i class="fas fa-ring"></i> Anillos</button>
+        <button class="tab-btn" data-cat="collares"><i class="fas fa-chain"></i> Collares</button>
+        <button class="tab-btn" data-cat="pulseras"><i class="fas fa-circle-notch"></i> Pulseras</button>
+        <button class="tab-btn" data-cat="aretes"><i class="fas fa-moon"></i> Aretes</button>
+        <button class="tab-btn" data-cat="earcuffs"><i class="fas fa-euro-sign"></i> Earcuffs</button>
+      </div>
+    </div>
+    <!-- Buscador por código -->
+    <div class="buscador-container">
+      <div class="buscador-wrapper">
+        <i class="fas fa-search buscador-icon"></i>
+        <input 
+          type="text" 
+          id="buscadorCodigo" 
+          class="buscador-input" 
+          placeholder="Buscar por código de producto (ej: ARE-ACE-001)..."
+          autocomplete="off"
+        >
+        <button class="btn-limpiar-busqueda hidden" id="btnLimpiarBusqueda" title="Limpiar búsqueda">
+          <i class="fas fa-times"></i>
+        </button>
+        <button class="buscador-btn" id="btnBuscar">
+          <i class="fas fa-search"></i>
+          <span>Buscar</span>
+        </button>
+      </div>
+      
+      <!-- Contenedor de sugerencias -->
+      <div class="sugerencias-container" id="sugerenciasContainer"></div>
+      
+      <!-- Badge de búsqueda activa -->
+      <div id="busquedaActivaBadge" class="busqueda-activa-badge" style="display: none;">
+        <span id="textoBusquedaActiva"></span>
+        <i class="fas fa-times" id="btnLimpiarBusquedaBadge"></i>
+      </div>
+    </div>
+    <!-- Filtros de material -->
+    <div class="filtros-material">
+      <div class="filtros-label">
+        <i class="fas fa-filter"></i>
+        <span>Material:</span>
+      </div>
+      <div class="material-buttons" id="materialFilters">
+        <button class="material-btn active" data-material="todos">
+          <i class="fas fa-check"></i> Todos
+        </button>
+        <button class="material-btn" data-material="acero">
+          <i class="fas fa-industry"></i> Acero Inox
+        </button>
+        <button class="material-btn" data-material="rodio">
+          <i class="fas fa-circle"></i> Rodio
+        </button>
+        <button class="material-btn" data-material="oro laminado">
+          <i class="fas fa-layer-group"></i> Oro Laminado
+        </button>
+        <button class="material-btn" data-material="oro 18k">
+          <i class="fas fa-crown"></i> Oro 18k
+        </button>
+        <button class="material-btn" data-material="plata 925">
+          <i class="fas fa-moon"></i> Plata 925
+        </button>
+      </div>      
+    </div>
+    <!-- Filtros de sexo/género -->
+    <div class="filtros-sexo">
+      <div class="filtros-label">
+        <i class="fas fa-venus-mars"></i>
+        <span>Género:</span>
+      </div>
+      <div class="sexo-buttons" id="sexoFilters">
+        <button class="sexo-btn active" data-sexo="todos">
+          <i class="fas fa-users"></i> Todos
+        </button>
+        <button class="sexo-btn" data-sexo="F">
+          <i class="fas fa-venus"></i> Femenino
+        </button>
+        <button class="sexo-btn" data-sexo="M">
+          <i class="fas fa-mars"></i> Masculino
+        </button>
+        <button class="sexo-btn" data-sexo="A">
+          <i class="fas fa-child-dress"></i> Niña
+        </button>
+        <button class="sexo-btn" data-sexo="O">
+          <i class="fas fa-child"></i> Niño
+        </button>
+      </div>
+      <button class="btn-limpiar-filtros" id="limpiarFiltros">
+        <i class="fas fa-times-circle"></i> Limpiar filtros
+      </button>
+    </div>
+    <div class="resultados-info" id="resultadosInfo"></div>
+
+    <!-- contenedor de productos (se actualiza vía JS) -->
+    <div id="productosContainer" class="productos-grid"></div>
+    <!-- Paginación -->
+      <div class="paginacion-container" id="paginacionContainer">
+        <button class="paginacion-btn paginacion-flecha" id="btnPrimeraPagina" title="Primera página">
+          <i class="fas fa-angle-double-left"></i>
+        </button>
+        <button class="paginacion-btn paginacion-flecha" id="btnAnterior" title="Página anterior">
+          <i class="fas fa-angle-left"></i>
+        </button>
+        
+        <div id="botonesPaginas" style="display: flex; gap: 6px;"></div>
+        
+        <span class="paginacion-info" id="paginacionInfo">Página 1 de 3</span>
+        
+        <button class="paginacion-btn paginacion-flecha" id="btnSiguiente" title="Página siguiente">
+          <i class="fas fa-angle-right"></i>
+        </button>
+        <button class="paginacion-btn paginacion-flecha" id="btnUltimaPagina" title="Última página">
+          <i class="fas fa-angle-double-right"></i>
+        </button>
+      </div>
+    <div class="nota-storage"><i class="far fa-save"></i> Tu pedido se guarda al agregar</div>
+  </section>
+
+  <!-- COLUMNA DERECHA: CARRITO + RESUMEN PARA WHATSAPP -->
+  <aside class="carrito-sidebar">
+    <div class="carrito-header">
+      <i class="fas fa-shopping-bag"></i>
+      <h2>Mi pedido</h2>
+    </div>
+    <ul id="lista-carrito"></ul>
+    <div id="empty-cart-placeholder" class="empty-cart-msg">
+      <i class="fas fa-gem" style="opacity: 0.5;"></i> <br> Aún no hay joyas
+    </div>
+    <div class="carrito-footer">
+      <div class="total-pedido">
+        <span>Total</span>
+        <span id="total-carrito">$0</span>
+      </div>
+      <button id="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
+      </button>
+      <p style="font-size: 0.7rem; margin-top: 12px; text-align: center; color:#8f7a6c;">
+        <i class="far fa-clipboard"></i> El texto incluye productos y cantidades
+      </p>
+    </div>
+  </aside>
+</div>
+
+ <!-- Lightbox para imagen ampliada -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" id="lightboxClose">
+    <i class="fas fa-times"></i>
+  </button>
+  
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" style="display: none;">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" style="display: none;">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+  
+  <div class="lightbox-container">
+    <div class="lightbox-loading" id="lightboxLoading">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+  </div>
+  
+  <div class="lightbox-info" id="lightboxInfo">
+    <span><i class="fas fa-tag"></i> <span id="lightboxCodigo"></span></span>
+    <span><i class="fas fa-gem"></i> <span id="lightboxNombre"></span></span>
+    <span><i class="fas fa-dollar-sign"></i> <span id="lightboxPrecio"></span></span>
+  </div>
+</div> 
+
+<script src="js/productos.js"></script>
+<script src="js/script.js"></script>
+  
+</body>
+</html>
