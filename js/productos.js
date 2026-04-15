@@ -60,7 +60,7 @@ const productosData = {
     {
       id: 'ARE-ACE-F-004', 
       codigo: 'ARE-ACE-F-004', 
-      nombre: 'Candongas doradas pulidas', 
+      nombre: 'Candongas grandes', 
       desc: 'Diseño brillante', 
       precio: 13000, 
       imagen: 'images/aretes/ARE-ACE-F-004.jpg',
@@ -72,7 +72,7 @@ const productosData = {
     {
       id: 'ARE-ACE-F-005', 
       codigo: 'ARE-ACE-F-005', 
-      nombre: 'Candongas gruesas', 
+      nombre: 'Candongas pequeñas', 
       desc: 'Diseño brillante', 
       precio: 11000, 
       imagen: 'images/aretes/ARE-ACE-F-005.jpg',
