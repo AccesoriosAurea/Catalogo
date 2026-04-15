@@ -46,12 +46,12 @@ const productosData = {
       sexo: 'F'
     },
     {
-      id: 'ARE-ACE-F-001', 
-      codigo: 'ARE-ACE-F-001', 
+      id: 'ARE-ACE-F-003', 
+      codigo: 'ARE-ACE-F-003', 
       nombre: 'Candongas doradas pulidas', 
       desc: 'Diseño brillante', 
-      precio: 13000, 
-      imagen: 'images/aretes/ARE-ACE-F-001.jpg',
+      precio: 11000, 
+      imagen: 'images/aretes/ARE-ACE-F-003.jpg',
       icono: 'fa-circle-notch',
       cat: 'aretes', 
       material: 'acero',
