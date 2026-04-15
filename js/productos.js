@@ -92,6 +92,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ROD-F-003', 
+      codigo: 'ARE-ROD-F-003', 
+      nombre: 'Aretes microsircon', 
+      desc: 'Diseño brillante', 
+      precio: 16000, 
+      imagen: 'images/aretes/ARE-ROD-F-003.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'F'
     }
   ]
 };
