@@ -755,7 +755,7 @@ window.irACategoriaYBuscar = irACategoriaYBuscar;
       const ids = Object.keys(carrito);
       if (ids.length === 0) return '';
     
-      let mensaje = '🛍️ *PEDIDO AUREA* 🛍️\n\n';
+      let mensaje = '✨ *PEDIDO AUREA* ✨\n\n';
       let total = 0;
       
       ids.forEach(id => {
@@ -767,7 +767,7 @@ window.irACategoriaYBuscar = irACategoriaYBuscar;
         mensaje += `• ${p.cantidad}x ${p.nombre} (${id}) - $${subtotal.toLocaleString()}\n`;
       });
       
-      mensaje += `\n💰 *TOTAL: $${total.toLocaleString()}*`;
+      mensaje += `\n💎 *TOTAL: $${total.toLocaleString()}*`;
       
       return mensaje;
     }
