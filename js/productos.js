@@ -104,6 +104,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ROD-F-004', 
+      codigo: 'ARE-ROD-F-004', 
+      nombre: 'Topos Girasol', 
+      desc: 'Diseño brillante', 
+      precio: 16000, 
+      imagen: 'images/aretes/ARE-ROD-F-004.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'F'
     }
   ]
 };
