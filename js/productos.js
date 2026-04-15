@@ -116,6 +116,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ROD-F-005', 
+      codigo: 'ARE-ROD-F-005', 
+      nombre: 'Aretes dobles microsircon', 
+      desc: 'Diseño brillante', 
+      precio: 15000, 
+      imagen: 'images/aretes/ARE-ROD-F-005.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'F'
     }
   ]
 };
