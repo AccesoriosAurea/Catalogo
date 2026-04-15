@@ -82,18 +82,6 @@ const productosData = {
       sexo: 'F'
     },
     {
-      id: 'ARE-ACE-F-006', 
-      codigo: 'ARE-ACE-F-006', 
-      nombre: 'Candongas gruesas', 
-      desc: 'Diseño brillante', 
-      precio: 12000, 
-      imagen: 'images/aretes/ARE-ACE-F-006.jpg',
-      icono: 'fa-circle-notch',
-      cat: 'aretes', 
-      material: 'acero',
-      sexo: 'F'
-    },
-    {
       id: 'ARE-ROD-F-002', 
       codigo: 'ARE-ROD-F-002', 
       nombre: 'Candongas gruesas', 
