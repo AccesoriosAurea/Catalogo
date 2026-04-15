@@ -512,7 +512,26 @@ h1, h2, h3, .serif {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;            /* ✅ Activa scroll horizontal */
+  overflow-y: hidden;
+  padding-bottom: 8px;         /* Espacio para la barra de scroll */
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+  scrollbar-width: thin; 
+}
+
+.filtros-material::-webkit-scrollbar {
+  height: 4px;
+}
+
+.filtros-material::-webkit-scrollbar-thumb {
+  background: #b9a394;
+  border-radius: 10px;
+}
+
+.filtros-material::-webkit-scrollbar-track {
+  background: #f0e9e3;
+  border-radius: 10px;
 }
 
 .filtros-label {
@@ -531,7 +550,7 @@ h1, h2, h3, .serif {
 .material-buttons {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .material-btn {
@@ -546,6 +565,7 @@ h1, h2, h3, .serif {
   transition: all 0.2s;
   font-family: 'Inter', sans-serif;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .material-btn:hover {
@@ -591,7 +611,12 @@ h1, h2, h3, .serif {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;            /* ✅ Scroll horizontal */
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .filtros-sexo .filtros-label {
@@ -606,7 +631,7 @@ h1, h2, h3, .serif {
 .sexo-buttons {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .sexo-btn {
@@ -624,6 +649,16 @@ h1, h2, h3, .serif {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0; 
+}
+
+.filtros-sexo::-webkit-scrollbar {
+  height: 4px;
+}
+
+.filtros-sexo::-webkit-scrollbar-thumb {
+  background: #b9a394;
+  border-radius: 10px;
 }
 
 .sexo-btn i {
@@ -1090,14 +1125,16 @@ h1, h2, h3, .serif {
 @media (max-width: 700px) {
   .filtros-material,
   .filtros-sexo {
-    flex-direction: column;
     align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
   }
   
   .material-buttons,
   .sexo-buttons {
-    width: 100%;
-    overflow-x: auto;
+    width: auto;
+    overflow-x: visible;
     flex-wrap: nowrap;
     padding-bottom: 4px;
   }
@@ -1108,9 +1145,10 @@ h1, h2, h3, .serif {
   }
   
   .btn-limpiar-filtros {
-    margin-left: 0;
-    width: 100%;
+    margin-left: auto;
+    width: auto;
     text-align: center;
+    flex-shrink: 0; 
   }
 }
 
