@@ -84,7 +84,7 @@ const productosData = {
     {
       id: 'ARE-ROD-F-002', 
       codigo: 'ARE-ROD-F-002', 
-      nombre: 'Candongas gruesas', 
+      nombre: 'Aretes microsircon', 
       desc: 'Diseño brillante', 
       precio: 18000, 
       imagen: 'images/aretes/ARE-ROD-F-002.jpg',
