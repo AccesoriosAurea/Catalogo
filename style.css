@@ -677,8 +677,9 @@ h1, h2, h3, .serif {
 
 /* ===== BUSCADOR POR CÓDIGO ===== */
 .buscador-container {
-  margin: 16px 0 8px;
+  margin: 16px auto 8px;
   width: 100%;
+  max-width: 600px;
   position: relative;
 }
 
