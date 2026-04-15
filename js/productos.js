@@ -96,7 +96,7 @@ const productosData = {
     {
       id: 'ARE-ROD-F-003', 
       codigo: 'ARE-ROD-F-003', 
-      nombre: 'Aretes microsircon', 
+      nombre: 'Aretes corazon microsircon', 
       desc: 'Diseño brillante', 
       precio: 16000, 
       imagen: 'images/aretes/ARE-ROD-F-003.jpg',
