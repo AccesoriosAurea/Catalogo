@@ -69,8 +69,8 @@
       
       if (sexoSeleccionado !== 'todos') {
         const sexoNombre = {
-          'F': 'Femenino',
-          'M': 'Masculino',
+          'F': 'Dama',
+          'M': 'Caballero',
           'A': 'Niña',
           'O': 'Niño'
         }[sexoSeleccionado];
