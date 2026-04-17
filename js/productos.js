@@ -6,7 +6,19 @@ const productosData = {
   
   collares: [],
   
-  pulseras: [],
+  pulseras: [
+    {
+      id: 'PUL-ACE-F-001', 
+      codigo: 'PUL-ACE-F-001', 
+      nombre: 'Pulsera trenzada', 
+      desc: 'Dorada', 
+      precio: 15000, 
+      imagen: 'images/pulseras/PUL-ACE-F-001.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'pulseras', 
+      material: 'acero',
+      sexo: 'F'
+    }],
   
   aretes: [
     {
