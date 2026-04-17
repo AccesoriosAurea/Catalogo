@@ -18,7 +18,20 @@ const productosData = {
       cat: 'pulseras', 
       material: 'acero',
       sexo: 'F'
-    }],
+    },
+    {
+      id: 'PUL-ACE-F-002', 
+      codigo: 'PUL-ACE-F-002', 
+      nombre: 'Pulsera estilo cubana', 
+      desc: 'Dorada', 
+      precio: 15000, 
+      imagen: 'images/pulseras/PUL-ACE-F-002.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'pulseras', 
+      material: 'acero',
+      sexo: 'F'
+    }
+  ],
   
   aretes: [
     {
