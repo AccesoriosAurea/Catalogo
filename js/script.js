@@ -554,8 +554,8 @@ window.irACategoriaYBuscar = irACategoriaYBuscar;
                              
               const productoJSON = JSON.stringify(prod).replace(/"/g, '&quot;');
               const sexoTexto = {
-                'F': 'Femenino',
-                'M': 'Masculino',
+                'F': 'Dama',
+                'M': 'Caballero',
                 'A': 'Niña',
                 'O': 'Niño'
               }[prod.sexo] || '';
