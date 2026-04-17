@@ -128,6 +128,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ROD-F-006', 
+      codigo: 'ARE-ROD-F-006', 
+      nombre: 'Candongas con perlas artificiales', 
+      desc: 'Diseño brillante', 
+      precio: 17000, 
+      imagen: 'images/aretes/ARE-ROD-F-006.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'F'
     }
   ]
 };
