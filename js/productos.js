@@ -176,6 +176,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ACE-F-007', 
+      codigo: 'ARE-ACE-F-007', 
+      nombre: 'Candongas esfericas', 
+      desc: 'Pulidas', 
+      precio: 13000, 
+      imagen: 'images/aretes/ARE-ACE-F-007.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'acero',
+      sexo: 'F'
     }
   ],
   sets: [
@@ -185,7 +197,7 @@ const productosData = {
       nombre: 'Set corazon piedra rosada', 
       desc: 'Con piedra', 
       precio: 28000,
-      imagen: 'images/aretes/SET-ROD-F-001.jpg',
+      imagen: 'images/sets/SET-ROD-F-001.jpg',
       icono: 'fa-heart',
       cat: 'sets', 
       material: 'rodio',
