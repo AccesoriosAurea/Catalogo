@@ -164,6 +164,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'A'
+    },
+    {
+      id: 'ARE-ROD-F-009', 
+      codigo: 'ARE-ROD-F-009', 
+      nombre: 'Topos micro sircones', 
+      desc: 'Diseño brillante', 
+      precio: 13000, 
+      imagen: 'images/aretes/ARE-ROD-F-009.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'F'
     }
   ]
 };
