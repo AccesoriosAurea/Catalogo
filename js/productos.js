@@ -152,6 +152,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'A'
+    },
+    {
+      id: 'ARE-ROD-A-008', 
+      codigo: 'ARE-ROD-A-008', 
+      nombre: 'Candongas osito', 
+      desc: 'Diseño brillante', 
+      precio: 15000, 
+      imagen: 'images/aretes/ARE-ROD-A-008.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'A'
     }
   ]
 };
