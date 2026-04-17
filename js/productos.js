@@ -140,6 +140,18 @@ const productosData = {
       cat: 'aretes', 
       material: 'rodio',
       sexo: 'F'
+    },
+    {
+      id: 'ARE-ROD-F-007', 
+      codigo: 'ARE-ROD-F-007', 
+      nombre: 'Candongas florales', 
+      desc: 'Diseño brillante', 
+      precio: 13000, 
+      imagen: 'images/aretes/ARE-ROD-F-007.jpg',
+      icono: 'fa-circle-notch',
+      cat: 'aretes', 
+      material: 'rodio',
+      sexo: 'F'
     }
   ]
 };
