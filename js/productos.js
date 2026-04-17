@@ -179,7 +179,8 @@ const productosData = {
     }
   ],
   sets: [
-    id: 'SET-ROD-F-001', 
+    { 
+      id: 'SET-ROD-F-001', 
       codigo: 'SET-ROD-F-001', 
       nombre: 'Set corazon piedra rosada', 
       desc: 'Con piedra', 
@@ -189,5 +190,6 @@ const productosData = {
       cat: 'sets', 
       material: 'rodio',
       sexo: 'F'
+    }
   ]
 };
