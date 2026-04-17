@@ -142,16 +142,16 @@ const productosData = {
       sexo: 'F'
     },
     {
-      id: 'ARE-ROD-F-007', 
-      codigo: 'ARE-ROD-F-007', 
-      nombre: 'Candongas florales', 
+      id: 'ARE-ROD-A-007', 
+      codigo: 'ARE-ROD-A-007', 
+      nombre: 'Candongas huellita', 
       desc: 'Diseño brillante', 
-      precio: 13000, 
-      imagen: 'images/aretes/ARE-ROD-F-007.jpg',
+      precio: 15000, 
+      imagen: 'images/aretes/ARE-ROD-A-007.jpg',
       icono: 'fa-circle-notch',
       cat: 'aretes', 
       material: 'rodio',
-      sexo: 'F'
+      sexo: 'A'
     }
   ]
 };
