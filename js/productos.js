@@ -177,5 +177,17 @@ const productosData = {
       material: 'rodio',
       sexo: 'F'
     }
+  ],
+  sets: [
+    id: 'SET-ROD-F-001', 
+      codigo: 'SET-ROD-F-001', 
+      nombre: 'Set corazon piedra rosada', 
+      desc: 'Con piedra', 
+      precio: 28000,
+      imagen: 'images/aretes/SET-ROD-F-001.jpg',
+      icono: 'fa-heart',
+      cat: 'sets', 
+      material: 'rodio',
+      sexo: 'F'
   ]
 };
