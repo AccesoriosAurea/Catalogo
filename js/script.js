@@ -49,7 +49,8 @@
         'collares': 'Collares',
         'pulseras': 'Pulseras',
         'aretes': 'Aretes',
-        'earcuffs': 'Earcuffs'  
+        'earcuffs': 'Earcuffs',
+        'sets':'Sets'  
       }[categoria] || categoria;
       
       let filtrosActivos = [];
@@ -241,7 +242,7 @@ let lightboxAPI;
     const whatsappBtn = document.getElementById('whatsapp-btn');
 
     // Categoria activa
-    let categoriaActual = 'anillos';
+    let categoriaActual = 'aretes';
 
     // ---------- FUNCIONES DE RENDERIZADO ----------
        function renderProductos(categoria) {
