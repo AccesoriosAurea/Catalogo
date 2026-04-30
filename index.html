@@ -408,6 +408,24 @@
             transform: translateY(-1px);
         }
 
+        .btn-vaciar {
+            width: 100%;
+            background: #e8dccc;
+            color: #5c3d2e;
+            border: none;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 10px;
+        }
+
+        .btn-vaciar:hover {
+            background: #ddceb9;
+        }
+
         .total {
             text-align: right;
             font-weight: bold;
@@ -601,6 +619,7 @@
         </div>
         <div class="modal-footer">
             <div class="total" id="totalCarrito">Total: $0</div>
+            <button class="btn-vaciar" id="vaciarCarritoBtn">🗑️ Vaciar carrito</button>
             <button class="btn-enviar" id="enviarPedidoBtn">📱 Enviar pedido por WhatsApp</button>
         </div>
     </div>
@@ -626,6 +645,7 @@
     // ==================== CONFIGURACIÓN ====================
     const NUMERO_WHATSAPP = '573011337774';
     const PRODUCTOS_POR_PAGINA = 20;
+    const STORAGE_KEY = 'aurea_carrito';
     
     const FAMILIAS = {
         1: { nombre: "ARETES", madre: null },
@@ -671,6 +691,7 @@
     const carritoContador = document.getElementById('carritoContador');
     const totalCarritoEl = document.getElementById('totalCarrito');
     const enviarPedidoBtn = document.getElementById('enviarPedidoBtn');
+    const vaciarCarritoBtn = document.getElementById('vaciarCarritoBtn');
     
     const modalProducto = document.getElementById('modalProducto');
     const cerrarModalProducto = document.getElementById('cerrarModalProducto');
@@ -682,6 +703,39 @@
     const prevImagen = document.getElementById('prevImagen');
     const nextImagen = document.getElementById('nextImagen');
     const indicadorImagen = document.getElementById('indicadorImagen');
+    
+    // ==================== LOCALSTORAGE FUNCTIONS ====================
+    
+    function guardarCarrito() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+    }
+    
+    function cargarCarrito() {
+        const guardado = localStorage.getItem(STORAGE_KEY);
+        if (guardado) {
+            try {
+                carrito = JSON.parse(guardado);
+                actualizarContadorCarrito();
+            } catch(e) {
+                console.error('Error al cargar carrito:', e);
+                carrito = {};
+            }
+        }
+    }
+    
+    function vaciarCarrito() {
+        if (Object.keys(carrito).length === 0) return;
+        
+        if (confirm('¿Estás seguro de que deseas vaciar todo el carrito?')) {
+            carrito = {};
+            guardarCarrito();
+            actualizarContadorCarrito();
+            mostrarCarrito(); // Refrescar modal si está abierto
+            mostrarNotificacion('🗑️ Carrito vaciado');
+        }
+    }
+    
+    // ==================== FUNCIONES ====================
     
     function obtenerMaterial(referencia) {
         if (!referencia) return 'DESCONOCIDO';
@@ -976,6 +1030,7 @@
         } else {
             carrito[ref].cantidad++;
         }
+        guardarCarrito(); // Guardar en localStorage
         actualizarContadorCarrito();
         mostrarNotificacion(`✨ +1: ${nombre.substring(0, 20)}`);
     }
@@ -1028,8 +1083,9 @@
             } else {
                 carrito[ref].cantidad = nuevaCant;
             }
+            guardarCarrito(); // Guardar cambios
             actualizarContadorCarrito();
-            mostrarCarrito();
+            mostrarCarrito(); // Refrescar modal
         }
     };
     
@@ -1098,6 +1154,7 @@
     carritoBtn.addEventListener('click', mostrarCarrito);
     cerrarModal.addEventListener('click', () => modalCarrito.style.display = 'none');
     enviarPedidoBtn.addEventListener('click', enviarPedido);
+    vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
     
     cerrarModalProducto.addEventListener('click', () => modalProducto.style.display = 'none');
     prevImagen.addEventListener('click', () => cambiarImagen(-1));
@@ -1118,6 +1175,8 @@
     
     window.cambiarPagina = cambiarPagina;
     
+    // ==================== INICIALIZAR ====================
+    cargarCarrito(); // Cargar carrito guardado antes de cargar productos
     cargarProductos();
 </script>
 </body>
