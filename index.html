@@ -685,7 +685,7 @@
     
     function obtenerMaterial(referencia) {
         if (!referencia) return 'DESCONOCIDO';
-        const prefijo = referencia.split('-')[0].toUpperCase();
+        const prefijo = referencia.split('-')[1].toUpperCase();
         return PREFIJO_MATERIAL[prefijo] || 'OTRO';
     }
     
