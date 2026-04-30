@@ -465,7 +465,7 @@
 
         .modal-producto-img {
             max-width: 90%;
-            max-height: 65%;
+            max-height: 70%;
             object-fit: contain;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
@@ -635,7 +635,6 @@
             <h3 id="modalTitulo"></h3>
             <p id="modalRef"></p>
             <p id="modalPrecio"></p>
-            <button id="modalAgregarCarrito" class="btn-agregar" style="width: auto; padding: 10px 24px; margin-top: 10px;">🛒 Agregar al carrito</button>
         </div>
         <div class="indicador-imagen" id="indicadorImagen">1 / 1</div>
     </div>
@@ -643,7 +642,7 @@
 
 <script>
     // ==================== CONFIGURACIÓN ====================
-    const NUMERO_WHATSAPP = '573011337774';
+    const NUMERO_WHATSAPP = '573012218709';
     const PRODUCTOS_POR_PAGINA = 20;
     const STORAGE_KEY = 'aurea_carrito';
     
@@ -699,7 +698,6 @@
     const modalTitulo = document.getElementById('modalTitulo');
     const modalRef = document.getElementById('modalRef');
     const modalPrecio = document.getElementById('modalPrecio');
-    const modalAgregarCarrito = document.getElementById('modalAgregarCarrito');
     const prevImagen = document.getElementById('prevImagen');
     const nextImagen = document.getElementById('nextImagen');
     const indicadorImagen = document.getElementById('indicadorImagen');
@@ -730,7 +728,7 @@
             carrito = {};
             guardarCarrito();
             actualizarContadorCarrito();
-            mostrarCarrito(); // Refrescar modal si está abierto
+            mostrarCarrito();
             mostrarNotificacion('🗑️ Carrito vaciado');
         }
     }
@@ -829,12 +827,16 @@
                 const referencia = valores[idxReferencia];
                 if (!referencia) continue;
                 
+                // Solo mostrar productos disponibles (disponible = 1)
+                const disponible = idxDisponible !== -1 ? valores[idxDisponible] : '1';
+                if (disponible !== '1' && disponible !== 1) continue;
+                
                 const producto = {
                     referencia: referencia,
                     descripcion: idxDescripcion !== -1 ? valores[idxDescripcion] : 'Sin descripción',
                     codfamilia: idxFamilia !== -1 ? parseInt(valores[idxFamilia]) : null,
                     precio: idxPrecio !== -1 ? parseFloat(valores[idxPrecio]) : 0,
-                    disponible: idxDisponible !== -1 ? valores[idxDisponible] : '1'
+                    disponible: disponible
                 };
                 
                 producto.material = obtenerMaterial(referencia);
@@ -866,23 +868,24 @@
         const categoriaSel = filtroCategoria.value;
         const busqueda = buscador.value.toLowerCase().trim();
         
-        productosFiltrados = productos.filter(p => p.disponible === '1' || p.disponible === 1);
+        let filtrados = [...productos];
         
         if (materialSel !== 'todos') {
-            productosFiltrados = productosFiltrados.filter(p => p.material === materialSel);
+            filtrados = filtrados.filter(p => p.material === materialSel);
         }
         
         if (categoriaSel !== 'todos') {
-            productosFiltrados = productosFiltrados.filter(p => p.categoriaPrincipal === categoriaSel);
+            filtrados = filtrados.filter(p => p.categoriaPrincipal === categoriaSel);
         }
         
         if (busqueda) {
-            productosFiltrados = productosFiltrados.filter(p => 
+            filtrados = filtrados.filter(p => 
                 p.descripcion.toLowerCase().includes(busqueda) || 
                 p.referencia.toLowerCase().includes(busqueda)
             );
         }
         
+        productosFiltrados = filtrados;
         paginaActual = 1;
         renderizarPaginacion();
         renderizarProductos();
@@ -999,11 +1002,6 @@
         modalRef.textContent = `Referencia: ${producto.referencia} | ${producto.material === 'ACERO' ? '⚜️ Acero' : '💎 Rodio'}`;
         modalPrecio.textContent = `Precio: $${producto.precio.toLocaleString('es-CO')}`;
         
-        modalAgregarCarrito.onclick = () => {
-            agregarAlCarrito(producto.referencia, producto.descripcion, producto.precio, producto.material);
-            mostrarNotificacion(`✓ Agregado: ${producto.descripcion.substring(0, 20)}`);
-        };
-        
         modalProducto.style.display = 'flex';
     }
     
@@ -1026,11 +1024,16 @@
     
     function agregarAlCarrito(ref, nombre, precio, material) {
         if (!carrito[ref]) {
-            carrito[ref] = { cantidad: 1, nombre: nombre, precio: precio, material: material };
+            carrito[ref] = { 
+                cantidad: 1, 
+                nombre: nombre, 
+                precio: precio, 
+                material: material
+            };
         } else {
             carrito[ref].cantidad++;
         }
-        guardarCarrito(); // Guardar en localStorage
+        guardarCarrito();
         actualizarContadorCarrito();
         mostrarNotificacion(`✨ +1: ${nombre.substring(0, 20)}`);
     }
@@ -1083,9 +1086,9 @@
             } else {
                 carrito[ref].cantidad = nuevaCant;
             }
-            guardarCarrito(); // Guardar cambios
+            guardarCarrito();
             actualizarContadorCarrito();
-            mostrarCarrito(); // Refrescar modal
+            mostrarCarrito();
         }
     };
     
@@ -1105,7 +1108,7 @@
         
         const totalItems = Object.values(carrito).reduce((s, i) => s + i.cantidad, 0);
         mensaje += `%0A📦 *Total de unidades:* ${totalItems}`;
-        mensaje += `%0A%0A🌟 ¡Gracias por elegir AUREA! 🌟`;
+        mensaje += `%0A%0A🌟 ¡Hola, Quiero esto! 🌟`;
         
         const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`;
         window.open(url, '_blank');
@@ -1176,7 +1179,7 @@
     window.cambiarPagina = cambiarPagina;
     
     // ==================== INICIALIZAR ====================
-    cargarCarrito(); // Cargar carrito guardado antes de cargar productos
+    cargarCarrito();
     cargarProductos();
 </script>
 </body>
