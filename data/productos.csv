@@ -1,5 +1,5 @@
 cantidad,codalmacen,codfabricante,codfamilia,coste,descripcion,disponible,idproducto,idstock,precio,pterecibir,referencia,reservada,stockmax,stockmin,total,ubicacion
-1,01,,13,6500,Candongas tipo dona,0,21,20,13000,0,ARE-ACE-F-001,1,0,0,6500,
+0,01,,13,6500,Candongas tipo dona,0,21,20,13000,0,ARE-ACE-F-001,0,0,0,0,
 0,01,,12,4000,Topos forma corazon texturizado,0,20,5,12000,0,ARE-ACE-F-002,0,0,0,0,
 1,01,,13,5500,Candongas,1,22,21,11000,0,ARE-ACE-F-003,0,0,0,5500,
 0,01,,13,6500,Candongas,0,23,6,13000,0,ARE-ACE-F-004,0,0,0,0,
