@@ -827,9 +827,15 @@
                 const referencia = valores[idxReferencia];
                 if (!referencia) continue;
                 
-                // Solo mostrar productos disponibles (disponible = 1)
-                const disponible = idxDisponible !== -1 ? valores[idxDisponible] : '1';
-                if (disponible !== '1' && disponible !== 1) continue;
+                 // Leer cantidad (stock)
+                let cantidad = 1; // valor por defecto
+                if (idxCantidad !== -1) {
+                    cantidad = parseInt(valores[idxCantidad]);
+                    if (isNaN(cantidad)) cantidad = 0;
+                }
+                
+                // SOLO mostrar productos con cantidad >= 1
+                if (cantidad < 1) continue;
                 
                 const producto = {
                     referencia: referencia,
