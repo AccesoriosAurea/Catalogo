@@ -15,4 +15,4 @@ cantidad,codalmacen,codfabricante,codfamilia,coste,descripcion,disponible,idprod
 1,01,,1,8600,Topos forma corazon girasol,1,39,8,17000,0,ARE-ROD-F-010,0,0,0,8600,
 0,01,,1,8000,Aretes media de sircones,0,41,15,16000,0,ARE-ROD-F-011,0,0,0,0,
 1,01,,3,7500,Pulsera estilo cubana,1,38,7,15000,0,PUL-ACE-F-002,0,0,0,7500,
-1,01,,5,14000,Set flor cristalina,0,40,9,28000,0,SET-ROD-F-002,1,0,0,14000,
+0,01,,5,14000,Set flor cristalina,0,40,9,28000,0,SET-ROD-F-002,0,0,0,0,
